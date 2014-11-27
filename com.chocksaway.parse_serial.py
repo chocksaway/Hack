@@ -27,13 +27,14 @@ drawer_open = False
 while True:
     ####print ("hello world")
 
-    if ser.readline() :
+    if ser.readline():
         print("we have input")
         my_val = ser.readline()
         print (my_val)
-        if "Button pushed" in my_val:
-            drawer_open = True
-            on_open()
-        elif "Button NOT pushed" in my_val and drawer_open:
+        if "Button NOT pushed" in ser.readline() and drawer_open:
             drawer_open = False
             on_close()
+        elif "Button pushed" in ser.readline():
+            drawer_open = True
+            on_open()
+
