@@ -3,6 +3,7 @@ __author__ = 'milesd'
 import serial
 import time
 
+ben = True
 
 ser = serial.Serial('/dev/tty.usbmodem1412', 9600)
 
