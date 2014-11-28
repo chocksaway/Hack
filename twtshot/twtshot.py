@@ -54,9 +54,9 @@ def import_local( root):
     '''
     global POST, TWTAUTH, TWTUTILS, USERS
     # Now import the local libraries we use, all used from this file
-    POST = libimport.importlibfile( '%s/twtlibpy/post.py' % root)
-    TWTAUTH = libimport.importlibfile( '%s/twtlibpy/twtauth.py' % root)
-    TWTUTILS = libimport.importlibfile( '%s/twtlibpy/twtutils.py' % root)
+    POST = libimport.importlibfile( '/Users/milesd/workspace/Hack/twtlibpy/post.py')
+    TWTAUTH = libimport.importlibfile( '/Users/milesd/workspace/Hack/twtlibpy/twtauth.py')
+    TWTUTILS = libimport.importlibfile( '/Users/milesd/workspace/Hack/twtlibpy/twtutils.py')
     #//XX TODO BenM
     #Sat Dec 28 14:54:27 2013
     # Not sure about users functionality
