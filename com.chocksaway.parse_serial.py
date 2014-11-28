@@ -48,7 +48,7 @@ def post_to_facebook():
 
 def on_open():
     global ts_open
-    print ("on_open")
+    print ("+++++++++++++++++++++++++++++++++++++++++++++on_open")
     ts_open = time.time()
     # send a message to Twitter
     msgman.open_message(ts_open)
@@ -73,10 +73,10 @@ while True:
         print("we have input")
         my_val = ser.readline()
         print (my_val)
-        if "Button NOT pushed" in ser.readline() and drawer_open:
+        if "Drawer NOT Open" in ser.readline() and drawer_open:
             drawer_open = False
             on_close()
-        elif "Button pushed" in ser.readline():
+        elif "Drawer Open" in ser.readline():
             drawer_open = True
             on_open()
 
