@@ -8,7 +8,8 @@ import os.path
 import socket
 import re
 import facebook
-
+import datetime
+import msgman
 
 
 ser = serial.Serial('/dev/tty.usbmodem1412', 9600)
@@ -49,6 +50,8 @@ def on_open():
     global ts_open
     print ("on_open")
     ts_open = time.time()
+    # send a message to Twitter
+    msgman.open_message(ts_open)
     print ts_open
 
 

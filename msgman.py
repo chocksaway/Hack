@@ -14,6 +14,16 @@ DURATIONSTRING = "Draw was open for %s #notsobigdata"
 
 HASHTAG = "#drawerofplenty"
 
+def post_a_tweet (user, twtxt):
+    """
+    Use twtshot to post a tweet.
+    """
+    #//XX TODO BenM
+    # REMEMBER, we are passing this to the shell so quote the twtxt to
+    # avoid breaking the command line with bad chars :)
+    os.system("python twtshot/twtshot.py --quiet --user=%s --modpath=. --twtxt='%s'" % (user, twtxt.encode("utf-8")))
+
+
 def gen_tweet_text ():
     """
     Just some random text for tweets.
@@ -42,7 +52,8 @@ def open_message (timestamp):
     """
     #drawerofplentty
     #    print OPENSTRING % timestamp
-    post_a_tweet("Happy_Drawer", gen_tweet_txt() % (timestamp, HASHTAG)
+    text = gen_tweet_text() % (timestamp, HASHTAG)
+    post_a_tweet("Happy_Drawer", text )
     
 def close_message (timestamp):
     """
@@ -65,13 +76,3 @@ close_message(time.time())
 USER = 'Happy_Drawer'
 TWTXT = 'Goodnight from the Drawer of Plenty. Look out for "You light my Xmas tree"...'
 
-def post_a_tweet (user, twtxt):
-    """
-    Use twtshot to post a tweet.
-    """
-    #//XX TODO BenM
-    # REMEMBER, we are passing this to the shell so quote the twtxt to
-    # avoid breaking the command line with bad chars :)
-    os.system("python twtshot/twtshot.py --quiet --user=%s --modpath=. --twtxt='%s'" % (user, twtxt.encode("utf-8")))
-
-post_a_tweet(USER, TWTXT) 
