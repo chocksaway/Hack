@@ -29,21 +29,25 @@ def gen_tweet_text ():
     Just some random text for tweets.
     """
     ## These are the messages from Mark and Ian
-    msgs = ["Customer active!","Uh-oh! Sugar rush alert!","Is it 3pm yet??! %s %s",
-        "I feel lighter!","Chocolate drops!","Drawer down alert! %s %s",
-        "Help! Help! Someone's got their hands in my drawers! %s %s",
-        "Chocolate related innuendo? Let me think %s %s",
-        "All you need is love. But a little chocolate now and then doesn't hurt %s %s",
-        "There is nothing better than a friend, unless it is a friend with chocolate %s %s",
-        "Don't wreck a sublime chocolate experience by feeling guilty %s %s",
-        "Anything is good if it's made of chocolate %s %s",
-        "What you see before you, my friend, is the result of a lifetime of chocolate %s %s",
-        "Look, there's no metaphysics on earth like chocolates %s %s",
-        '"Draw down"? sounds like 2008! %s %s',
-        "Oh yeah, there's a chocolate for that %s %s",
-        "No, it's not 3pm, it's 3am. Where have you been?! %s %s",
-        "Your drawers or mine? %s %s",
-        "Hold on, I'm feeling something... %s %s"]
+    msgs = ["Customer active! %s %s",
+            "Uh-oh! Sugar rush alert! %s %s",
+            "Is it 3pm yet??! %s %s",
+            "I feel lighter! %s %s",
+            "Chocolate drops! %s %s",
+            "Drawer down alert! %s %s",
+            "Help! Help! Someone's got their hands in my drawers! %s %s",
+            "Chocolate related innuendo? Let me think %s %s",
+            "All you need is love. But a little chocolate now and then doesn't hurt %s %s",
+            "There is nothing better than a friend, unless it is a friend with chocolate %s %s",
+            "Don't wreck a sublime chocolate experience by feeling guilty %s %s",
+            "Anything is good if it's made of chocolate %s %s",
+            "What you see before you, my friend, is the result of a lifetime of chocolate %s %s",
+            "Look, there's no metaphysics on earth like chocolates %s %s",
+            '"Draw down"? sounds like 2008! %s %s',
+            "Oh yeah, there's a chocolate for that %s %s",
+            "No, it's not 3pm, it's 3am. Where have you been?! %s %s",
+            "Your drawers or mine? %s %s",
+            "Hold on, I'm feeling something... %s %s"]
         
     return msgs[random.randint(0,len(msgs)-1)]
 
