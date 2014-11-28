@@ -1,0 +1,102 @@
+* BenM deploy.txt Fri Nov 28 01:08:42 2014
+
+1)
+
+I've used httplib2, not in the standard Python distribution, so:
+
+%%
+
+https://code.google.com/p/httplib2/wiki/Install
+
+The latest release of httplib2 can be downloaded from the from the
+Downloads page.
+
+Download into downloads, unpack, and:
+
+% cd ~/downloads/httplib2-0.8
+% sudo python setup.py install
+
+2)
+
+Back to the root project (i.e. where we cloned to from github):
+
+% cd /Users/benm/scratch/benm-wordmatter/Hack
+
+3)
+
+In twtshot/twtshot.py:
+
+USERSFILENAME = 'private/twtshot.dat'
+
+4)
+
+In:
+
+twtlibpy/post.py
+twtauth/post.py
+twtauth/users.py
+
+change 
+
+[was] infspec = '..' 
+to
+[should be] infspec = '.'
+
+5)
+
+In the wrapper script (twtshotrunner.py for testing, msgman.py for the
+Hack) the OS call should be:
+
+    os.system("python /Users/benm/scratch/benm-wordmatter/Hack/twtshot/twtshot.py --modpath=. --user=%s --twtxt=\'%s\' --quiet" % (user, txt.encode("utf-8"))) #% (user, txt))
+
+6)
+
+Certificate error, in oauthlib/oauthlib.py make the http object
+without certs:
+
+    http = httplib2.Http(disable_ssl_certificate_validation=True)
+
+7)
+
+Run with:
+
+python twtshot/twtshot.py --user=zijitengdev --modpath=. --twtxt="blam"
+
+8)
+
+For zijitengdev flap$33
+
+9)
+
+Now, for the tweet drawer:
+
+Gmail: DrawerOfPlenty@gmail.com
+Password: Fillmeup
+ 
+Twitter: DrawerOfPlenty@gmail.com
+Password: Fillmeup
+ 
+Facebook: https://www.facebook.com/DrawerOfPlenty?ref=aymt_homepage_panel
+
+10)
+
+To authenticate twtshot for Happy_Drawer:
+
+% python twtshot/twtshot.py --user=Happy_Drawer --modpath=. --authmode --twtxt="blim"
+
+Okay, it "just works", jolly good :)
+
+11)
+
+Next, clean up private/twtshot.dat, good.
+
+12)
+
+Running with:
+
+% python twtshot/twtshot.py --quiet --user=Happy_Drawer --modpath=. --twtxt="Quiet"
+
+python msgman.py --quiet --user=Happy_Drawer --modpath=. --twtxt="
+
+python twtshot/twtshot.py --quiet --user=Happy_Drawer --modpath=. --twtxt="Quiet"
+
