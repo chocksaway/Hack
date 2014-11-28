@@ -54,6 +54,7 @@ def on_open(open_stamp):
 
 
 def on_close(close_stamp):
+    msgman.close_message(close_stamp)
     print ("on_close")
 
 
@@ -73,7 +74,7 @@ while True:
         if "Drawer NOT Open" in ser.readline() and drawer_open:
             print ("Drawer NOT Open")
             drawer_open = False
-            # on_close(time.time())
+            on_close(time.time())
         elif "Drawer Open" in ser.readline():
             print ("Drawer Open")
 

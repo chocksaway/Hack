@@ -16,6 +16,10 @@ DURATIONSTRING = "Draw was open for %s #notsobigdata"
 
 HASHTAG = "#drawerofplenty"
 
+HASHTAG_CLOSE = "#drawerofplenty #close"
+
+HASHTAG_OPEN = "#drawerofplenty #open"
+
 def post_a_tweet (user, twtxt):
     """
     Use twtshot to post a tweet.
@@ -55,25 +59,29 @@ def gen_tweet_text ():
             "Your drawers or mine? %s %s",
             "Hold on, Im feeling something... %s %s"]
         
-    return #msgs[random.randint(0,len(msgs)-1)]
-    return msgs[0]
+    return msgs[random.randint(0,len(msgs)-1)]
+
+    #return msgs[0]
+
+    # return "Customer active %s %s"
 
 ## Entry
 def open_message (timestamp):
     """
     """
-    #drawerofplentty
-    #    print OPENSTRING % timestamp
     message = gen_tweet_text()
-    message = text % (str(timestamp), HASHTAG)
-    #text = (text % (timestamp, HASHTAG))
-    #print text
+    message = message % (str(timestamp), HASHTAG_OPEN)
+
     post_a_tweet("Happy_Drawer", message)
     
 def close_message (timestamp):
     """
     """
-    print CLOSESTRING % timestamp
+
+    message = gen_tweet_text()
+    message = message % (str(timestamp), HASHTAG_CLOSE)
+
+    post_a_tweet("Happy_Drawer", message)
 
 def duration_message (timestamp):
     """
