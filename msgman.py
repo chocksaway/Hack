@@ -29,7 +29,7 @@ def gen_tweet_text ():
     Just some random text for tweets.
     """
     ## These are the messages from Mark and Ian
-    msgs = ["Customer active! %s %s",
+    msgs = ["Customer active %s %s",
             "Uh-oh! Sugar rush alert! %s %s",
             "Is it 3pm yet??! %s %s",
             "I feel lighter! %s %s",
@@ -49,7 +49,8 @@ def gen_tweet_text ():
             "Your drawers or mine? %s %s",
             "Hold on, Im feeling something... %s %s"]
         
-    return msgs[random.randint(0,len(msgs)-1)]
+    return #msgs[random.randint(0,len(msgs)-1)]
+    retrn msgs[0]
 
 def open_message (timestamp):
     """
