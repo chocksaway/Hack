@@ -197,6 +197,38 @@ def run():
         ## Tested OK Fri Dec 27 18:21:33 2013
         POST.postupdate(appkey=CONSUMER_KEY, appsecret=CONSUMER_SECRET, token=user['oauth_token'], tokensecret=user['oauth_token_secret'], posturl=BASEURL+POSTPATH, msgtext=TWTXT, verbose=0)
 
+def run_direct(noise_level, user, message):
+    '''
+    Simple main function, execute this and quit. Write errors to an
+    error log.
+    '''
+    global QUIET, AUTHMODE, MODPATH, USER, LOGFILE, TWTXT, AUTHENTICATED
+    QUIET = noise_level
+    USER = user
+    TWTXT = message
+    AUTHMODE = False
+    if not QUIET:
+        print 'Running'
+    # Read in the saved users list
+    readuserlist()
+### Fri Nov 28 02:52:02 2014
+### Sometimes we want to re-write the pickled file see FORCE_USER
+    #    writeuserlist()    
+    # Authenticate only
+    if AUTHMODE:
+        ##This call works okay, returns a complete user id with tokens
+        result = TWTAUTH.authenticateaccount( USER, APP_NAME, CONSUMER_KEY, CONSUMER_SECRET)
+        AUTHENTICATED.append(result)
+        print AUTHENTICATED
+        writeuserlist()
+        #print AUTHENTICATED
+    else:
+        user = getuserfromlist(USER)
+        if not user:
+            return
+        ## Tested OK Fri Dec 27 18:21:33 2013
+        POST.postupdate(appkey=CONSUMER_KEY, appsecret=CONSUMER_SECRET, token=user['oauth_token'], tokensecret=user['oauth_token_secret'], posturl=BASEURL+POSTPATH, msgtext=TWTXT, verbose=0)
+
 ########################################
 
 if __name__=='__main__':
