@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # (C) Copyright Connected Digital Economy Catapult Limited 2014
+import facebook
 
 import pytest
 import datetime
@@ -22,3 +23,10 @@ def test_write_csv_file():
         the_file.write("27-11-2014 11:34:02,,The drawer is open, Facebook\n")
         the_file.write("27-11-2014 11:34:02,27-11-2014 11:36:13,The drawer has closed, Facebook\n")
     assert(1 == 1)
+
+
+def test_post_to_facebook():
+    graph = facebook.GraphAPI("CAALZA3vgt0TYBAHghbwefK9lK3qB2kCFSwHZBxRON8wVcUYA19jpyIFLsW9qiSj7QcnlxMllxNck88AGpYjRZBmTSqB3ZAto0TvXHprwEGwgtHJJluqXTbf9Jynph8ZA52k6g3bakCZBYFxzvmnLsWkCXvSRsXnzwIj10P2vmsMoqVq0lPb1sOlfqZCflWLCp6gzYvSZBzD1aGZA51xV25IbL")
+    profile = graph.get_object("me")
+    friends = graph.get_connections("me", "friends")
+    graph.put_object("me", "feed", message="I am writing on my wall!")
