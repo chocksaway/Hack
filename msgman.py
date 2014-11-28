@@ -52,7 +52,10 @@ def open_message (timestamp):
     """
     #drawerofplentty
     #    print OPENSTRING % timestamp
-    text = gen_tweet_text() % (timestamp, HASHTAG)
+    text = gen_tweet_text()
+    print text
+    text = text % (timestamp, HASHTAG)
+    print text
     post_a_tweet("Happy_Drawer", text )
     
 def close_message (timestamp):
@@ -66,13 +69,3 @@ def duration_message (timestamp):
     print DURATIONSTRING % timestamp
 
         
-print gen_tweet_text()
-open_message(time.time())
-close_message(time.time())
-
-# Authenticated account for:
-# DrawerOfPlenty@gmail.com
-
-USER = 'Happy_Drawer'
-TWTXT = 'Goodnight from the Drawer of Plenty. Look out for "You light my Xmas tree"...'
-
