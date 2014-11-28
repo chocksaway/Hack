@@ -27,7 +27,7 @@ import libimport
 
 # Make us location independent e.g. if we want to run from ~/bin
 infspec = '..'
-infspec = '.'
+#infspec = '.'
 
 # Local
 # Uses only: oauthlib.gettoken( ..)
