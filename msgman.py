@@ -58,7 +58,7 @@ def gen_tweet_text ():
             "No, its not 3pm, its 3am. Where have you been?! %s %s",
             "Your drawers or mine? %s %s",
             "Hold on, Im feeling something... %s %s"]
-        
+
     return msgs[random.randint(0,len(msgs)-1)]
 
     #return msgs[0]
@@ -73,7 +73,9 @@ def open_message (timestamp):
     message = message % (str(timestamp), HASHTAG_OPEN)
 
     post_a_tweet("Happy_Drawer", message)
-    
+
+    update_excel(timestamp, "OPEN", message)
+
 def close_message (timestamp):
     """
     """
@@ -83,9 +85,19 @@ def close_message (timestamp):
 
     post_a_tweet("Happy_Drawer", message)
 
+    update_excel(timestamp, "CLOSE", message)
+
 def duration_message (timestamp):
     """
     """
     print DURATIONSTRING % timestamp
 
-        
+
+
+def update_excel(timestamp, event_type, message):
+    # testCsvOutput.csv
+    my_str = str(time.strftime("%m-%d-%Y")) + "," + str(time.strftime("%H:%M:%S")) + "," + event_type + ",\"" + message + "\"\n"
+    print my_str
+
+    with open("/tmp/testCsvOutput.csv", "a") as my_file:
+        my_file.write(my_str)
