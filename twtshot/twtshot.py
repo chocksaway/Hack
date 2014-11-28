@@ -228,6 +228,7 @@ def run_direct(noise_level, user, message):
         if not user:
             return
         ## Tested OK Fri Dec 27 18:21:33 2013
+        #
         post.postupdate(appkey=CONSUMER_KEY, appsecret=CONSUMER_SECRET, token=user['oauth_token'], tokensecret=user['oauth_token_secret'], posturl=BASEURL+POSTPATH, msgtext=TWTXT, verbose=0)
 
 ########################################
