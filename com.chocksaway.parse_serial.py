@@ -74,10 +74,12 @@ while True:
         if "Drawer NOT Open" in ser.readline() and drawer_open:
             print ("Drawer NOT Open")
             drawer_open = False
-            on_close(time.time())
+            on_close(str(time.strftime("%H:%M:%S")))
+
         elif "Drawer Open" in ser.readline():
             print ("Drawer Open")
 
-            drawer_open = True
-            on_open(time.time())
+            if not drawer_open:
+                on_open(str(time.strftime("%H:%M:%S")))
+                drawer_open = True
 
