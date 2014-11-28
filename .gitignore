@@ -1,2 +1,5 @@
 .virtualenv/*
 .idea/*
+Hack.iml
+tests/unit/*.pyc
+tests/unit/__pycache__/test_app.cpython-27-PYTEST.pyc

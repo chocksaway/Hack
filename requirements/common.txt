@@ -1,0 +1,10 @@
+behave==1.2.4
+cobertura2clover==0.1
+lxml==3.4.0
+mock==1.0.1
+pylint==1.3.0
+pytest-cov==1.8.0
+pytest==2.6.3
+rdflib==4.1.2
+requests==2.4.3
+tornado==4.0.2
