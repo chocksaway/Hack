@@ -21,7 +21,7 @@ def post_a_tweet (user, twtxt):
     #//XX TODO BenM
     # REMEMBER, we are passing this to the shell so quote the twtxt to
     # avoid breaking the command line with bad chars :)
-    os.system("python twtshot/twtshot.py --quiet --user=%s --modpath=.. --twtxt='%s'" % (user, twtxt.encode("utf-8")))
+    os.system("python twtshot/twtshot.py --quiet --user=%s --modpath=. --twtxt='%s'" % (user, twtxt.encode("utf-8")))
 
 
 def gen_tweet_text ():
