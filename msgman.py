@@ -61,7 +61,7 @@ def open_message (timestamp):
     print text
     #text = (text % (timestamp, HASHTAG))
     #print text
-    post_a_tweet("Happy_Drawer", text )
+    post_a_tweet("Happy_Drawer", "What the drawer")
     
 def close_message (timestamp):
     """
