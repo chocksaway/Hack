@@ -14,7 +14,7 @@ import msgman
 
 ser = serial.Serial('/dev/tty.usbmodem1412', 9600)
 
-ts_open = None
+ts_open = 0.0
 
 syslog_host = '54.77.151.169'
 syslog_port = 514
@@ -46,19 +46,16 @@ def post_to_facebook():
     graph.put_object("me", "feed", message="I am writing on my wall!")
 
 
-def on_open():
-    global ts_open
+def on_open(open_stamp):
+    miles = 123
     print ("+++++++++++++++++++++++++++++++++++++++++++++on_open")
-    ts_open = time.time()
     # send a message to Twitter
-    msgman.open_message(ts_open)
-    print ts_open
+    msgman.open_message(open_stamp)
 
 
-def on_close():
+def on_close(close_stamp):
     print ("on_close")
-    ts_close  = time.time() - ts_open
-    print ts_close
+
 
 logging.info('Starting Chocolate Drawer')
 
@@ -74,9 +71,12 @@ while True:
         my_val = ser.readline()
         print (my_val)
         if "Drawer NOT Open" in ser.readline() and drawer_open:
+            print ("Drawer NOT Open")
             drawer_open = False
-            on_close()
+            # on_close(time.time())
         elif "Drawer Open" in ser.readline():
+            print ("Drawer Open")
+
             drawer_open = True
-            on_open()
+            on_open(time.time())
 

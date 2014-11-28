@@ -8,6 +8,8 @@
 from datetime import datetime
 import os, time, random
 
+import twtshot
+
 OPENSTRING = "Draw opened at %s #notsobigdata"
 CLOSESTRING = "Draw closed at %s #notsobigdata"
 DURATIONSTRING = "Draw was open for %s #notsobigdata"
@@ -21,7 +23,11 @@ def post_a_tweet (user, twtxt):
     #//XX TODO BenM
     # REMEMBER, we are passing this to the shell so quote the twtxt to
     # avoid breaking the command line with bad chars :)
-    os.system("python twtshot/twtshot.py --quiet --user=%s --modpath=. --twtxt='%s'" % (user, twtxt.encode("utf-8")))
+    # os.system("python twtshot/twtshot.py --quiet --user=%s --modpath=. --twtxt='%s'" % (user, twtxt.encode("utf-8")))
+
+    twtshot.run_direct(True, user, twtxt.encode("utf-8"))
+
+    miles = 123
 
 
 def gen_tweet_text ():
@@ -61,7 +67,7 @@ def open_message (timestamp):
     print text
     #text = (text % (timestamp, HASHTAG))
     #print text
-    post_a_tweet("Happy_Drawer", "What the drawer")
+    post_a_tweet("Happy_Drawer", "What the drawer...")
     
 def close_message (timestamp):
     """
