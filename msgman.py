@@ -50,7 +50,7 @@ def gen_tweet_text ():
             "Hold on, Im feeling something... %s %s"]
         
     return #msgs[random.randint(0,len(msgs)-1)]
-    retrn msgs[0]
+    return msgs[0]
 
 def open_message (timestamp):
     """
