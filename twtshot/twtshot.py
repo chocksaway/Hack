@@ -14,7 +14,8 @@
 import sys, re, pickle
 
 # LOCAL, library loader func from zijitpylibs, not part of this app
-import libimport
+#import libimport
+import post, twtauth, twtutils
 
 # LOCAL modules we depend on from twtlibpy
 POST = TWTAUTH = TWTUTILS = USERS = TWTXT = ''
@@ -54,9 +55,9 @@ def import_local( root):
     '''
     global POST, TWTAUTH, TWTUTILS, USERS
     # Now import the local libraries we use, all used from this file
-    POST = libimport.importlibfile( '/Users/milesd/workspace/Hack/twtlibpy/post.py')
-    TWTAUTH = libimport.importlibfile( '/Users/milesd/workspace/Hack/twtlibpy/twtauth.py')
-    TWTUTILS = libimport.importlibfile( '/Users/milesd/workspace/Hack/twtlibpy/twtutils.py')
+#    POST = libimport.importlibfile( '/Users/milesd/workspace/Hack/twtlibpy/post.py')
+#    TWTAUTH = libimport.importlibfile( '/Users/milesd/workspace/Hack/twtlibpy/twtauth.py')
+#    TWTUTILS = libimport.importlibfile( '/Users/milesd/workspace/Hack/twtlibpy/twtutils.py')
     #//XX TODO BenM
     #Sat Dec 28 14:54:27 2013
     # Not sure about users functionality
@@ -185,7 +186,7 @@ def run():
     # Authenticate only
     if AUTHMODE:
         ##This call works okay, returns a complete user id with tokens
-        result = TWTAUTH.authenticateaccount( USER, APP_NAME, CONSUMER_KEY, CONSUMER_SECRET)
+        result = twtauth.authenticateaccount( USER, APP_NAME, CONSUMER_KEY, CONSUMER_SECRET)
         AUTHENTICATED.append(result)
         print AUTHENTICATED
         writeuserlist()
@@ -195,7 +196,7 @@ def run():
         if not user:
             return
         ## Tested OK Fri Dec 27 18:21:33 2013
-        POST.postupdate(appkey=CONSUMER_KEY, appsecret=CONSUMER_SECRET, token=user['oauth_token'], tokensecret=user['oauth_token_secret'], posturl=BASEURL+POSTPATH, msgtext=TWTXT, verbose=0)
+        post.postupdate(appkey=CONSUMER_KEY, appsecret=CONSUMER_SECRET, token=user['oauth_token'], tokensecret=user['oauth_token_secret'], posturl=BASEURL+POSTPATH, msgtext=TWTXT, verbose=0)
 
 def run_direct(noise_level, user, message):
     '''
@@ -217,7 +218,7 @@ def run_direct(noise_level, user, message):
     # Authenticate only
     if AUTHMODE:
         ##This call works okay, returns a complete user id with tokens
-        result = TWTAUTH.authenticateaccount( USER, APP_NAME, CONSUMER_KEY, CONSUMER_SECRET)
+        result = twtauth.authenticateaccount( USER, APP_NAME, CONSUMER_KEY, CONSUMER_SECRET)
         AUTHENTICATED.append(result)
         print AUTHENTICATED
         writeuserlist()
@@ -227,7 +228,7 @@ def run_direct(noise_level, user, message):
         if not user:
             return
         ## Tested OK Fri Dec 27 18:21:33 2013
-        POST.postupdate(appkey=CONSUMER_KEY, appsecret=CONSUMER_SECRET, token=user['oauth_token'], tokensecret=user['oauth_token_secret'], posturl=BASEURL+POSTPATH, msgtext=TWTXT, verbose=0)
+        post.postupdate(appkey=CONSUMER_KEY, appsecret=CONSUMER_SECRET, token=user['oauth_token'], tokensecret=user['oauth_token_secret'], posturl=BASEURL+POSTPATH, msgtext=TWTXT, verbose=0)
 
 ########################################
 
