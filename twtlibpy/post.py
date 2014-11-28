@@ -34,8 +34,10 @@ infspec = '..'
 
 # Local
 # Uses: oauthlib.callapi( ..)  
-oauthlib = libimport.importlibfile( '%s/oauthlibpy/oauthlib.py' % infspec)
-twtutils = libimport.importlibfile( '%s/twtlibpy/twtutils.py' % infspec)
+#oauthlib = libimport.importlibfile( '%s/oauthlibpy/oauthlib.py' % infspec)
+oauthlib = libimport.importlibfile( '/Users/milesd/workspace/Hack/oauthlibpy/oauthlib.py')
+#twtutils = libimport.importlibfile( '%s/twtlibpy/twtutils.py' % infspec)
+twtutils = libimport.importlibfile( '/Users/milesd/workspace/Hack/twtlibpy/twtutils.py')
 
 # Fri Dec 27 18:25:11 2013
 # Added verbose flag

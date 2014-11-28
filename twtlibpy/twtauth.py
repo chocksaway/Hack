@@ -31,7 +31,8 @@ infspec = '..'
 
 # Local
 # Uses only: oauthlib.gettoken( ..)
-oauthlib = libimport.importlibfile( '%s/oauthlibpy/oauthlib.py' % infspec)
+#oauthlib = libimport.importlibfile( '%s/oauthlibpy/oauthlib.py' % infspec)
+oauthlib = libimport.importlibfile( '/Users/milesd/workspace/Hack/oauthlibpy/oauthlib.py')
 
 # Twitter authentication endpoints
 BASEURL='https://api.twitter.com'
