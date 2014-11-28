@@ -59,7 +59,7 @@ def open_message (timestamp):
     #    print OPENSTRING % timestamp
     text = gen_tweet_text()
     print text
-    text = text % (timestamp, HASHTAG)
+    text = (text % (timestamp, HASHTAG))
     print text
     post_a_tweet("Happy_Drawer", text )
     
