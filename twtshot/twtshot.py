@@ -39,7 +39,9 @@ TWTXT = 'Blah blah'
 #Access token URL	https://api.twitter.com/oauth/access_token
 #Callback URL		None
 #Sign in with Twitter	No
-CONSUMER_KEY = 'XXXXXXXXX' # <- Removed Mon Dec  1 09:43:27 2014 
+
+# Removed keys from public repo  Mon Dec  1 09:43:27 2014 
+CONSUMER_KEY = 'XXXXXXXXX' # <- Removed
 CONSUMER_SECRET = 'XXXXXXXXX' # <- Removed
 
 # Twitter endpoints
