@@ -1,4 +1,4 @@
-__author__ = 'milesd'
+__author__ = 'milesd davenport'
 
 import serial
 import time
